@@ -2,20 +2,23 @@
 
 import { useState, useMemo } from 'react';
 import { Product } from '@/types/product';
-import productsData from '@/data/products.json';
+import productsData from '@/data/data.json';
 
-export const useProducts = () => {
+export const useProducts = (intialProducts :Product[]) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   const categories = useMemo(() => {
-    const cats = Array.from(new Set(productsData.map(p => p.category)));
-    return ['All', ...cats];
-  }, []);
+    //const cats = Array.from(new Set(productsData.map(p => p.category)));
+	 // const cats = Array.from(new Set(initialProducts.map(p => p.category)));
+	  const cats = ["All", ...new Set(initialProducts.map(p => p.category))];
+    //return ['All', ...cats];
+	return cats;
+  }, [initialProducts]);
 
   const filteredProducts = useMemo(() => {
-    if (selectedCategory === 'All') return productsData;
-    return productsData.filter(p => p.category === selectedCategory);
-  }, [selectedCategory]);
+    if (selectedCategory === 'All') return initialProducts;
+    return initialProducts.filter(p => p.category === selectedCategory);
+  }, [initialProducts,selectedCategory]);
 
   return { categories, filteredProducts, selectedCategory, setSelectedCategory };
 };
