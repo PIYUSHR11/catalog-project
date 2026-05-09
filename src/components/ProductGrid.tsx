@@ -13,7 +13,7 @@ export default function ProductGrid({ products }: Props) {
     <Container maxWidth="lg">
       <Grid container spacing={3}>
         {products.map((product, idx) => (
-          <Grid item xs={12} sm={6} md={4} key={idx}>
+          <Grid key={idx} size={{ xs:12, sm: 6, md: 4}} >
             <ProductCard product={product} />
           </Grid>
         ))}

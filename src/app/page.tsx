@@ -6,6 +6,7 @@ import CategoryFilter from '@/components/CategoryFilter';
 import ProductGrid from '@/components/ProductGrid';
 import {Metadata} from 'next';
 import CatalogClient from "@/components/CatalogClient";
+import { Product } from '@/types/product';
 
 
 export const metadata: Metadata = {
@@ -26,30 +27,7 @@ async function getProducts(): Promise<Product[]> {
 
 
 export default async function Home() {
-  //const { categories, filteredProducts, selectedCategory, setSelectedCategory } = useProducts();
-	const products = await getProducts();
-/*  return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Box sx={{ mb: 4 }}>
-        <Typography variant="h3" gutterBottom>
-          Product Catalog
-        </Typography>
-        <Typography variant="subtitle1" color="textSecondary">
-          Browse our categories
-        </Typography>
-      </Box>
-
-      <CategoryFilter
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onSelect={setSelectedCategory}
-      />
-
-     // <ProductGrid products={filteredProducts} />
-		<CatalogClient initialProducts={products} />;
-	</Container>
-  );
-*/
+const products = await getProducts();
 return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Box sx={{ mb: 4 }}>

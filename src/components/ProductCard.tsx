@@ -25,7 +25,7 @@ export default function ProductCard({ product }: { product: Product }) {
               <Typography variant="body2" color="textSecondary">
                 {prop.label}:
               </Typography>
-              <Typography variant="body2" fontWeight="bold">
+              <Typography variant="body2" sx={{ fontWeight:"bold"}} component="span">
                 {prop.value}
               </Typography>
             </Box>

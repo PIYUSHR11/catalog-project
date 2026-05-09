@@ -15,7 +15,7 @@ export default function CatalogClient({ initialProducts }: CatalogClientProps) {
   const productsWithId = useMemo(() => 
     initialProducts.map((p, i) => ({
       ...p,
-      _id: p.slug || p.name || `product-${i}`,
+      _id: p.itemname || `product-${i}`,
     })),
     [initialProducts]
   );

@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react';
 import { Product } from '@/types/product';
 import productsData from '@/data/data.json';
 
-export const useProducts = (intialProducts :Product[]) => {
+export const useProducts = (initialProducts :Product[]) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   const categories = useMemo(() => {

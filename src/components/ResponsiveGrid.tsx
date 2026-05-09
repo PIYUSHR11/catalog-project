@@ -17,12 +17,13 @@ export default function ResponsiveGrid({ products }: ResponsiveGridProps) {
       >
         {products.map((product, idx) => (
           <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
             key={idx}
+size={{
+            xs:12,
+            sm: 6,
+            md: 4,
+            lg: 3,
+  }}          
           >
             <ProductCard product={product} />
           </Grid>
